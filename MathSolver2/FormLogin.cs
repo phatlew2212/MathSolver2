@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,15 +17,38 @@ namespace MathSolver2
         {
             InitializeComponent();
         }
-
-        private void label5_Click(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
 
-        }
+            string connString = "Host=localhost;Username=postgres;Password=postgres;Database=mathsolver";
 
-        private void FormLogin_Load(object sender, EventArgs e)
-        {
+            using (var conn = new NpgsqlConnection(connString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand("SELECT COUNT(1) FROM users WHERE username = @username AND password = @password", conn))
+                {
+                    cmd.Parameters.AddWithValue("username", username);
+                    cmd.Parameters.AddWithValue("password", password);
 
+                    int userCount = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    if (userCount == 1)
+                    {
+                        MessageBox.Show("Login successful!");
+                        FormCalculator formCalculator = new FormCalculator(); 
+                        formCalculator.Show();
+                        this.Hide();
+                        // Redirect to another form or perform some action
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid username or password.");
+                    }
+                }
+            }
         }
     }
+
 }
