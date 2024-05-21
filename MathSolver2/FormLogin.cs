@@ -1,4 +1,5 @@
-﻿using Npgsql;
+﻿
+using System.Data.SQLite;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,12 +23,15 @@ namespace MathSolver2
             string username = txtUsername.Text;
             string password = txtPassword.Text;
 
-            string connString = "Host=localhost;Username=postgres;Password=postgres;Database=mathsolver";
+            string connectionString = "Data Source=db.db";
 
-            using (var conn = new NpgsqlConnection(connString))
+            // Tạo kết nối
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
-                conn.Open();
-                using (var cmd = new NpgsqlCommand("SELECT COUNT(1) FROM users WHERE username = @username AND password = @password", conn))
+                // Mở kết nối
+                connection.Open();
+                string query = "SELECT COUNT(*) FROM users WHERE Username = @username AND Password = @password";
+                using (SQLiteCommand cmd = new SQLiteCommand(query, connection))
                 {
                     cmd.Parameters.AddWithValue("username", username);
                     cmd.Parameters.AddWithValue("password", password);
