@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,62 +17,62 @@ namespace MathSolver2
         {
             InitializeComponent();
         }
-        private void textBox5_TextChanged(object sender, EventArgs e)
+        private SQLiteConnection CreateConnection()
         {
-
+            string connectionString = "Data Source=db.db";
+            return new SQLiteConnection(connectionString);
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private bool RegisterUser(string username, string password)
         {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click_1(object sender, EventArgs e)
-        {
-
+            using (var connection = CreateConnection())
+            {
+                connection.Open();
+                string query = "INSERT INTO users (username, password) VALUES (@username, @password)";
+                using (var cmd = new SQLiteCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@password", password);
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    catch (SQLiteException ex)
+                    {
+                        // Handle unique constraint violation (i.e., username already exists)
+                        if (ex.ResultCode == SQLiteErrorCode.Constraint)
+                        {
+                            MessageBox.Show("Tên đăng nhập đã được sử dụng", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            MessageBox.Show("An error occurred while registering. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        return false;
+                    }
+                }
+            }
         }
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
-
-            // Lấy giá trị từ textbox
             string username = txtUsername.Text;
             string password = txtPassword.Text;
+            string confirmPassword = txtPasswordConfirm.Text;
 
-            // Giả sử thông tin đăng nhập là admin/admin
-            if (username == "admin" && password == "admin")
+            if (password != confirmPassword)
             {
-                MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                // Sau khi đăng nhập thành công, bạn có thể mở form chính của ứng dụng tại đây
-                // MainForm mainForm = new MainForm();
-                // mainForm.Show();
-                // this.Hide();
+                MessageBox.Show("Passwords do not match. Please re-enter.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            else
+
+            if (RegisterUser(username, password))
             {
-                MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Registration successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close(); // Close the registration form
             }
         }
-
-        private void lblConfirmPassword_Click(object sender, EventArgs e)
-        {
-
-        }
     }
-    }
+}
 

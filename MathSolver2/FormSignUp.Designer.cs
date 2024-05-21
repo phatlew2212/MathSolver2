@@ -53,7 +53,6 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(191, 24);
             this.txtName.TabIndex = 1;
-            this.txtName.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // lblName
             // 
@@ -67,7 +66,6 @@
             this.lblName.Size = new System.Drawing.Size(51, 19);
             this.lblName.TabIndex = 2;
             this.lblName.Text = "Name";
-            this.lblName.Click += new System.EventHandler(this.label5_Click);
             // 
             // btnSignUp
             // 
@@ -91,7 +89,7 @@
             this.btnExit.TabIndex = 4;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.button4_Click);
+  
             // 
             // txtUsername
             // 
@@ -141,7 +139,7 @@
             this.lblConfirmPassword.Size = new System.Drawing.Size(173, 19);
             this.lblConfirmPassword.TabIndex = 10;
             this.lblConfirmPassword.Text = "Confirm your Password";
-            this.lblConfirmPassword.Click += new System.EventHandler(this.lblConfirmPassword_Click);
+      
             // 
             // txtPasswordConfirm
             // 
@@ -167,7 +165,7 @@
             this.lblUsername.Size = new System.Drawing.Size(80, 19);
             this.lblUsername.TabIndex = 6;
             this.lblUsername.Text = "Username";
-            this.lblUsername.Click += new System.EventHandler(this.label6_Click);
+
             // 
             // label5
             // 
@@ -181,7 +179,7 @@
             this.label5.Size = new System.Drawing.Size(266, 36);
             this.label5.TabIndex = 11;
             this.label5.Text = "Đăng ký tài khoản";
-            this.label5.Click += new System.EventHandler(this.label5_Click_1);
+   
             // 
             // label6
             // 

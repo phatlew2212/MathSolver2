@@ -41,10 +41,9 @@ namespace MathSolver2
                     if (userCount == 1)
                     {
                         MessageBox.Show("Login successful!");
-                        FormCalculator formCalculator = new FormCalculator(); 
+                        FormCalculator formCalculator = new FormCalculator();
                         formCalculator.Show();
                         this.Hide();
-                        // Redirect to another form or perform some action
                     }
                     else
                     {
@@ -52,6 +51,13 @@ namespace MathSolver2
                     }
                 }
             }
+        }
+
+        private void btnSignUp_Click(object sender, EventArgs e)
+        {
+            FormSignUp formSignUp = new FormSignUp();
+            formSignUp.Show();
+            this.Hide();
         }
     }
 
