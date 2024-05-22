@@ -12,10 +12,13 @@ namespace MathSolver2
         public FormLogin()
         {
             InitializeComponent();
+            this.txtUsername.TextChanged += new System.EventHandler(this.hideError);
+            this.txtPassword.TextChanged += new System.EventHandler(this.hideError);
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             this.txtUsername.KeyPress += new KeyPressEventHandler(enter_KeyPress);
             this.txtPassword.KeyPress += new KeyPressEventHandler(enter_KeyPress);
             this.checkBox1.KeyPress += new KeyPressEventHandler(enter_KeyPress);
+            this.FormClosing += new FormClosingEventHandler(FormSignUp_FormClosing);
 
         }
         // kết nối db
@@ -71,15 +74,12 @@ namespace MathSolver2
             this.Hide();
         }
         // hiện và ẩn thông báo lỗi
-        private void txtUsername_TextChanged(object sender, EventArgs e)
+        private void hideError(object sender, EventArgs e)
         {
+            this.label2.Hide();
             this.label2.Hide();
         }
 
-        private void txtPassword_TextChanged(object sender, EventArgs e)
-        {
-            this.label2.Hide();
-        }
 
         // Sự kiện CheckedChanged của CheckBox
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -104,7 +104,10 @@ namespace MathSolver2
                 btnLogin_Click(sender, e);
             }
         }
-
+        private void FormSignUp_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
 
     }
 

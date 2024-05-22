@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SQLite;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace MathSolver2
@@ -16,63 +10,130 @@ namespace MathSolver2
         public FormSignUp()
         {
             InitializeComponent();
+            txtName.TextChanged += new EventHandler(HideErrors);
+            txtUsername.TextChanged += new EventHandler(HideErrors);
+            txtPassword.TextChanged += new EventHandler(HideErrors);
+            txtConfirmPassword.TextChanged += new EventHandler(HideErrors);
+            txtGmail.TextChanged += new EventHandler(HideErrors);
+            this.txtUsername.KeyPress += new KeyPressEventHandler(FormSignUp_KeyPress);
+            this.txtPassword.KeyPress += new KeyPressEventHandler(FormSignUp_KeyPress);
+            this.txtConfirmPassword.KeyPress += new KeyPressEventHandler(FormSignUp_KeyPress);
+            this.txtGmail.KeyPress += new KeyPressEventHandler(FormSignUp_KeyPress);
+
         }
-        private SQLiteConnection CreateConnection()
+        // kết nối db
+        public SQLiteConnection getConnection()
         {
             string connectionString = "Data Source=db.db";
-            return new SQLiteConnection(connectionString);
-        }
-
-        private bool RegisterUser(string username, string password)
-        {
-            using (var connection = CreateConnection())
+            SQLiteConnection connection = new SQLiteConnection(connectionString);
+            try
             {
                 connection.Open();
-                string query = "INSERT INTO users (username, password) VALUES (@username, @password)";
-                using (var cmd = new SQLiteCommand(query, connection))
-                {
-                    cmd.Parameters.AddWithValue("@username", username);
-                    cmd.Parameters.AddWithValue("@password", password);
-                    try
-                    {
-                        cmd.ExecuteNonQuery();
-                        return true;
-                    }
-                    catch (SQLiteException ex)
-                    {
-                        if (ex.ResultCode == SQLiteErrorCode.Constraint)
-                        {
-                            MessageBox.Show("Tên đăng nhập đã được sử dụng", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Xảy ra lỗi trong quá trình đăng ký. Vui lòng thử lại.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        return false;
-                    }
-                }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            return connection;
+
         }
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
+            string fullName = txtName.Text;
             string username = txtUsername.Text;
             string password = txtPassword.Text;
-            string confirmPassword = txtPasswordConfirm.Text;
+            string confirmPassword = txtConfirmPassword.Text;
+            string email = txtGmail.Text;
 
-            if (password != confirmPassword)
+            if (!IsValidEmail(email))
             {
-                MessageBox.Show("Xác nhận mật khẩu không trùng khớp", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.errorEmail.Show() ;
                 return;
             }
 
-            if (RegisterUser(username, password))
+            if (password != confirmPassword)
             {
-                MessageBox.Show("Đăng ký thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close(); // Close the registration form
+                this.errorConfirmPassword.Show() ;
+                return;
+            }
+
+            if (IsUsernameTaken(username))
+            {
+                this.existUsername.Show() ;
+                return;
+            }
+
+            RegisterUser(fullName, username, password, email);
+        }
+
+        private bool IsValidEmail(string email)
+        {
+            string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            return Regex.IsMatch(email, pattern);
+        }
+
+        private bool IsUsernameTaken(string username)
+        {
+            using (SQLiteConnection conn = getConnection())
+            {
+                string query = "SELECT COUNT(*) FROM users WHERE username = @username";
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@username", username);
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    return count > 0;
+                }
             }
         }
 
+        private void RegisterUser(string fullName, string username, string password, string email)
+        {
+            using (SQLiteConnection conn = getConnection())
+            {
+                string query = "INSERT INTO users (fullname, username, password, email) VALUES (@fullname, @username, @password, @email)";
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@fullname", fullName);
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@password", password);
+                    cmd.Parameters.AddWithValue("@email", email);
+
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Đăng ký thành công! ");
+                        FormLogin formLogin = new FormLogin();
+                        formLogin.Show();
+                        this.Hide();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+                }
+            }
+        }
+        private void linkLabel1_LinkClicked(object sender, EventArgs e)
+        {
+            FormLogin formLogin = new FormLogin();
+            formLogin.Show();
+            this.Hide();
+        }
+        private void HideErrors(object sender, EventArgs e)
+        {
+            this.errorEmail.Hide();
+            this.errorConfirmPassword.Hide();
+            this.existUsername.Hide();
+        }
+        private void FormSignUp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                btnSignUp_Click(sender, e);
+            }
+        }
 
     }
 }

@@ -29,217 +29,276 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSignUp));
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.lblName = new System.Windows.Forms.Label();
-            this.btnSignUp = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.lblPassword = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.errorEmail = new System.Windows.Forms.Label();
+            this.errorConfirmPassword = new System.Windows.Forms.Label();
+            this.existUsername = new System.Windows.Forms.Label();
+            this.gmail = new System.Windows.Forms.Label();
+            this.txtGmail = new System.Windows.Forms.TextBox();
+            this.confirmPassword = new System.Windows.Forms.Label();
+            this.txtConfirmPassword = new System.Windows.Forms.TextBox();
+            this.password = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.lblConfirmPassword = new System.Windows.Forms.Label();
-            this.txtPasswordConfirm = new System.Windows.Forms.TextBox();
-            this.lblUsername = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.username = new System.Windows.Forms.Label();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.name = new System.Windows.Forms.Label();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.btnSignUp = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // txtName
+            // panel1
             // 
-            this.txtName.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtName.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(196, 187);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(191, 26);
-            this.txtName.TabIndex = 1;
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.Azure;
+            this.panel1.Controls.Add(this.errorEmail);
+            this.panel1.Controls.Add(this.errorConfirmPassword);
+            this.panel1.Controls.Add(this.existUsername);
+            this.panel1.Controls.Add(this.gmail);
+            this.panel1.Controls.Add(this.txtGmail);
+            this.panel1.Controls.Add(this.confirmPassword);
+            this.panel1.Controls.Add(this.txtConfirmPassword);
+            this.panel1.Controls.Add(this.password);
+            this.panel1.Controls.Add(this.txtPassword);
+            this.panel1.Controls.Add(this.username);
+            this.panel1.Controls.Add(this.txtUsername);
+            this.panel1.Controls.Add(this.name);
+            this.panel1.Controls.Add(this.txtName);
+            this.panel1.Controls.Add(this.linkLabel1);
+            this.panel1.Controls.Add(this.btnSignUp);
+            this.panel1.Location = new System.Drawing.Point(188, 31);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(403, 467);
+            this.panel1.TabIndex = 28;
             // 
-            // lblName
+            // errorEmail
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.lblName.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.ForeColor = System.Drawing.Color.Navy;
-            this.lblName.Location = new System.Drawing.Point(191, 159);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(108, 25);
-            this.lblName.TabIndex = 2;
-            this.lblName.Text = "Họ và tên";
+            this.errorEmail.AutoSize = true;
+            this.errorEmail.ForeColor = System.Drawing.Color.Red;
+            this.errorEmail.Location = new System.Drawing.Point(88, 366);
+            this.errorEmail.Name = "errorEmail";
+            this.errorEmail.Size = new System.Drawing.Size(219, 18);
+            this.errorEmail.TabIndex = 43;
+            this.errorEmail.Text = "Không đúng định dạng email";
+            this.errorEmail.Hide();
             // 
-            // btnSignUp
+            // errorConfirmPassword
             // 
-            this.btnSignUp.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSignUp.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSignUp.Location = new System.Drawing.Point(233, 388);
-            this.btnSignUp.Name = "btnSignUp";
-            this.btnSignUp.Size = new System.Drawing.Size(103, 47);
-            this.btnSignUp.TabIndex = 3;
-            this.btnSignUp.Text = "Đăng ký";
-            this.btnSignUp.UseVisualStyleBackColor = true;
-            this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
+            this.errorConfirmPassword.AutoSize = true;
+            this.errorConfirmPassword.ForeColor = System.Drawing.Color.Red;
+            this.errorConfirmPassword.Location = new System.Drawing.Point(67, 366);
+            this.errorConfirmPassword.Name = "errorConfirmPassword";
+            this.errorConfirmPassword.Size = new System.Drawing.Size(288, 18);
+            this.errorConfirmPassword.TabIndex = 42;
+            this.errorConfirmPassword.Text = "Xác nhận mật khẩu không trùng khớp";
+            this.errorConfirmPassword.Hide();
             // 
-            // btnExit
+            // existUsername
             // 
-            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnExit.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(458, 388);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(88, 47);
-            this.btnExit.TabIndex = 4;
-            this.btnExit.Text = "Thoát";
-            this.btnExit.UseVisualStyleBackColor = true;
+            this.existUsername.AutoSize = true;
+            this.existUsername.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.existUsername.ForeColor = System.Drawing.Color.Red;
+            this.existUsername.Location = new System.Drawing.Point(87, 365);
+            this.existUsername.Name = "existUsername";
+            this.existUsername.Size = new System.Drawing.Size(222, 19);
+            this.existUsername.TabIndex = 41;
+            this.existUsername.Text = "Tên đăng nhập đã được sử dụng";
+            this.existUsername.Hide();
             // 
-            // txtUsername
+            // gmail
             // 
-            this.txtUsername.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(193, 270);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(191, 26);
-            this.txtUsername.TabIndex = 5;
+            this.gmail.AutoSize = true;
+            this.gmail.BackColor = System.Drawing.Color.Transparent;
+            this.gmail.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.gmail.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gmail.ForeColor = System.Drawing.Color.Navy;
+            this.gmail.Location = new System.Drawing.Point(37, 282);
+            this.gmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.gmail.Name = "gmail";
+            this.gmail.Size = new System.Drawing.Size(47, 19);
+            this.gmail.TabIndex = 40;
+            this.gmail.Text = "Email";
             // 
-            // lblPassword
+            // txtGmail
             // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.lblPassword.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.ForeColor = System.Drawing.Color.Navy;
-            this.lblPassword.Location = new System.Drawing.Point(188, 242);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(111, 25);
-            this.lblPassword.TabIndex = 8;
-            this.lblPassword.Text = "Mật khẩu";
+            this.txtGmail.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtGmail.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtGmail.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGmail.Location = new System.Drawing.Point(40, 305);
+            this.txtGmail.Margin = new System.Windows.Forms.Padding(4);
+            this.txtGmail.Name = "txtGmail";
+            this.txtGmail.Size = new System.Drawing.Size(315, 26);
+            this.txtGmail.TabIndex = 39;
+            // 
+            // confirmPassword
+            // 
+            this.confirmPassword.AutoSize = true;
+            this.confirmPassword.BackColor = System.Drawing.Color.Transparent;
+            this.confirmPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.confirmPassword.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirmPassword.ForeColor = System.Drawing.Color.Navy;
+            this.confirmPassword.Location = new System.Drawing.Point(37, 217);
+            this.confirmPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.confirmPassword.Name = "confirmPassword";
+            this.confirmPassword.Size = new System.Drawing.Size(135, 19);
+            this.confirmPassword.TabIndex = 38;
+            this.confirmPassword.Text = "Xác nhận mật khẩu";
+            // 
+            // txtConfirmPassword
+            // 
+            this.txtConfirmPassword.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtConfirmPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtConfirmPassword.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirmPassword.Location = new System.Drawing.Point(40, 240);
+            this.txtConfirmPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.txtConfirmPassword.Name = "txtConfirmPassword";
+            this.txtConfirmPassword.PasswordChar = '*';
+            this.txtConfirmPassword.Size = new System.Drawing.Size(315, 26);
+            this.txtConfirmPassword.TabIndex = 37;
+            // 
+            // password
+            // 
+            this.password.AutoSize = true;
+            this.password.BackColor = System.Drawing.Color.Transparent;
+            this.password.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.password.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.password.ForeColor = System.Drawing.Color.Navy;
+            this.password.Location = new System.Drawing.Point(39, 146);
+            this.password.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.password.Name = "password";
+            this.password.Size = new System.Drawing.Size(71, 19);
+            this.password.TabIndex = 36;
+            this.password.Text = "Mật khẩu";
             // 
             // txtPassword
             // 
             this.txtPassword.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(419, 187);
+            this.txtPassword.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(40, 169);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(194, 26);
-            this.txtPassword.TabIndex = 7;
+            this.txtPassword.Size = new System.Drawing.Size(315, 26);
+            this.txtPassword.TabIndex = 35;
             // 
-            // lblConfirmPassword
+            // username
             // 
-            this.lblConfirmPassword.AutoSize = true;
-            this.lblConfirmPassword.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblConfirmPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.lblConfirmPassword.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConfirmPassword.ForeColor = System.Drawing.Color.Navy;
-            this.lblConfirmPassword.Location = new System.Drawing.Point(420, 242);
-            this.lblConfirmPassword.Name = "lblConfirmPassword";
-            this.lblConfirmPassword.Size = new System.Drawing.Size(208, 25);
-            this.lblConfirmPassword.TabIndex = 10;
-            this.lblConfirmPassword.Text = "Xác nhận mật khẩu";
+            this.username.AutoSize = true;
+            this.username.BackColor = System.Drawing.Color.Transparent;
+            this.username.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.username.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.username.ForeColor = System.Drawing.Color.Navy;
+            this.username.Location = new System.Drawing.Point(36, 83);
+            this.username.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.username.Name = "username";
+            this.username.Size = new System.Drawing.Size(105, 19);
+            this.username.TabIndex = 34;
+            this.username.Text = "Tên đăng nhập";
             // 
-            // txtPasswordConfirm
+            // txtUsername
             // 
-            this.txtPasswordConfirm.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.txtPasswordConfirm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPasswordConfirm.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtPasswordConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPasswordConfirm.Location = new System.Drawing.Point(419, 270);
-            this.txtPasswordConfirm.Name = "txtPasswordConfirm";
-            this.txtPasswordConfirm.PasswordChar = '*';
-            this.txtPasswordConfirm.Size = new System.Drawing.Size(194, 26);
-            this.txtPasswordConfirm.TabIndex = 9;
+            this.txtUsername.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtUsername.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.Location = new System.Drawing.Point(40, 106);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(4);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(315, 26);
+            this.txtUsername.TabIndex = 33;
             // 
-            // lblUsername
+            // name
             // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.lblUsername.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.ForeColor = System.Drawing.Color.Navy;
-            this.lblUsername.Location = new System.Drawing.Point(420, 159);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(163, 25);
-            this.lblUsername.TabIndex = 6;
-            this.lblUsername.Text = "Tên đăng nhập";
+            this.name.AutoSize = true;
+            this.name.BackColor = System.Drawing.Color.Transparent;
+            this.name.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.name.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name.ForeColor = System.Drawing.Color.Navy;
+            this.name.Location = new System.Drawing.Point(41, 19);
+            this.name.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(72, 19);
+            this.name.TabIndex = 32;
+            this.name.Text = "Họ và tên";
             // 
-            // label5
+            // txtName
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label5.Location = new System.Drawing.Point(675, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(133, 37);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Đăng ký";
+            this.txtName.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Location = new System.Drawing.Point(41, 42);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(314, 26);
+            this.txtName.TabIndex = 31;
             // 
-            // label6
+            // linkLabel1
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label6.Location = new System.Drawing.Point(3, 3);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(399, 69);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "MathSolver+-";
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.linkLabel1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.LinkColor = System.Drawing.Color.SteelBlue;
+            this.linkLabel1.Location = new System.Drawing.Point(37, 338);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(112, 19);
+            this.linkLabel1.TabIndex = 29;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Đã có tài khoản?";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // btnSignUp
+            // 
+            this.btnSignUp.BackColor = System.Drawing.Color.White;
+            this.btnSignUp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSignUp.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSignUp.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnSignUp.Location = new System.Drawing.Point(115, 388);
+            this.btnSignUp.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSignUp.Name = "btnSignUp";
+            this.btnSignUp.Size = new System.Drawing.Size(162, 61);
+            this.btnSignUp.TabIndex = 25;
+            this.btnSignUp.Text = "Đăng ký";
+            this.btnSignUp.UseVisualStyleBackColor = false;
+            this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
             // 
             // FormSignUp
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(820, 532);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.lblConfirmPassword);
-            this.Controls.Add(this.txtPasswordConfirm);
-            this.Controls.Add(this.lblPassword);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.lblUsername);
-            this.Controls.Add(this.txtUsername);
-            this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnSignUp);
-            this.Controls.Add(this.lblName);
-            this.Controls.Add(this.txtName);
+            this.ClientSize = new System.Drawing.Size(845, 532);
+            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FormSignUp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng ký";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Button btnSignUp;
-        private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.TextBox txtUsername;
-        private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.Label name;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.Label confirmPassword;
+        private System.Windows.Forms.TextBox txtConfirmPassword;
+        private System.Windows.Forms.Label password;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Label lblConfirmPassword;
-        private System.Windows.Forms.TextBox txtPasswordConfirm;
-        private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label username;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.Label gmail;
+        private System.Windows.Forms.TextBox txtGmail;
+        private System.Windows.Forms.Label existUsername;
+        private System.Windows.Forms.Label errorConfirmPassword;
+        private System.Windows.Forms.Label errorEmail;
     }
 }
