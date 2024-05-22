@@ -46,7 +46,7 @@ namespace MathSolver2
                         }
                         else
                         {
-                            MessageBox.Show("An error occurred while registering. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Xảy ra lỗi trong quá trình đăng ký. Vui lòng thử lại.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         return false;
                     }
@@ -62,16 +62,18 @@ namespace MathSolver2
 
             if (password != confirmPassword)
             {
-                MessageBox.Show("Passwords do not match. Please re-enter.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Xác nhận mật khẩu không trùng khớp", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if (RegisterUser(username, password))
             {
-                MessageBox.Show("Registration successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Đăng ký thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close(); // Close the registration form
             }
         }
+
+
     }
 }
 

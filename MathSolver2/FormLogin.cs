@@ -1,14 +1,9 @@
 ﻿
 using System.Data.SQLite;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Windows.Forms.VisualStyles;
 
 namespace MathSolver2
 {
@@ -17,19 +12,35 @@ namespace MathSolver2
         public FormLogin()
         {
             InitializeComponent();
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.txtUsername.KeyPress += new KeyPressEventHandler(enter_KeyPress);
+            this.txtPassword.KeyPress += new KeyPressEventHandler(enter_KeyPress);
+            this.checkBox1.KeyPress += new KeyPressEventHandler(enter_KeyPress);
+
         }
+        // kết nối db
+        public SQLiteConnection getConnection()
+        {
+            string connectionString = "Data Source=db.db";
+            SQLiteConnection connection = new SQLiteConnection(connectionString);
+            try
+            {
+                connection.Open();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            return connection;
+
+    }
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string username = txtUsername.Text;
             string password = txtPassword.Text;
-
-            string connectionString = "Data Source=db.db";
-
-            // Tạo kết nối
-            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            using (SQLiteConnection connection = getConnection())
             {
-                // Mở kết nối
-                connection.Open();
+             
                 string query = "SELECT COUNT(*) FROM users WHERE Username = @username AND Password = @password";
                 using (SQLiteCommand cmd = new SQLiteCommand(query, connection))
                 {
@@ -40,25 +51,60 @@ namespace MathSolver2
 
                     if (userCount == 1)
                     {
-                        MessageBox.Show("Login successful!");
+                        MessageBox.Show("Đăng nhập thành công!");
                         FormCalculator formCalculator = new FormCalculator();
                         formCalculator.Show();
                         this.Hide();
                     }
                     else
                     {
-                        MessageBox.Show("Invalid username or password.");
+                        this.label2.Show();
                     }
                 }
             }
         }
 
-        private void btnSignUp_Click(object sender, EventArgs e)
+        private void linkLabel1_LinkClicked(object sender, EventArgs e)
         {
             FormSignUp formSignUp = new FormSignUp();
             formSignUp.Show();
             this.Hide();
         }
+        // hiện và ẩn thông báo lỗi
+        private void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+            this.label2.Hide();
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            this.label2.Hide();
+        }
+
+        // Sự kiện CheckedChanged của CheckBox
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+      
+                txtPassword.PasswordChar = '\0';
+            }
+            else
+            {
+                
+                txtPassword.PasswordChar = '*';
+            }
+        }
+        // sự kiện nhấn enter
+        private void enter_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                btnLogin_Click(sender, e);
+            }
+        }
+
 
     }
 
