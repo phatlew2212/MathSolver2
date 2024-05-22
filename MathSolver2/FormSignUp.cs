@@ -40,7 +40,6 @@ namespace MathSolver2
                     }
                     catch (SQLiteException ex)
                     {
-                        // Handle unique constraint violation (i.e., username already exists)
                         if (ex.ResultCode == SQLiteErrorCode.Constraint)
                         {
                             MessageBox.Show("Tên đăng nhập đã được sử dụng", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

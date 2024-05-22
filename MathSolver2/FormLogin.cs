@@ -59,6 +59,7 @@ namespace MathSolver2
             formSignUp.Show();
             this.Hide();
         }
+
     }
 
 }

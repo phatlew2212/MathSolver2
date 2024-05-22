@@ -58,12 +58,12 @@
             this.lblLogin.AutoSize = true;
             this.lblLogin.BackColor = System.Drawing.Color.White;
             this.lblLogin.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.lblLogin.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblLogin.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lblLogin.ForeColor = System.Drawing.SystemColors.GrayText;
             this.lblLogin.Location = new System.Drawing.Point(811, 22);
             this.lblLogin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(221, 46);
+            this.lblLogin.Size = new System.Drawing.Size(204, 45);
             this.lblLogin.TabIndex = 23;
             this.lblLogin.Text = "Đăng nhập";
             // 
@@ -72,14 +72,14 @@
             this.lblUsername.AutoSize = true;
             this.lblUsername.BackColor = System.Drawing.SystemColors.Window;
             this.lblUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.lblUsername.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsername.ForeColor = System.Drawing.SystemColors.GrayText;
             this.lblUsername.Location = new System.Drawing.Point(231, 208);
             this.lblUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(99, 23);
+            this.lblUsername.Size = new System.Drawing.Size(125, 20);
             this.lblUsername.TabIndex = 18;
-            this.lblUsername.Text = "Username";
+            this.lblUsername.Text = "Tên đăng nhập";
             // 
             // txtUsername
             // 
@@ -96,25 +96,25 @@
             // btnExit
             // 
             this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExit.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.Location = new System.Drawing.Point(639, 334);
             this.btnExit.Margin = new System.Windows.Forms.Padding(4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(112, 41);
             this.btnExit.TabIndex = 16;
-            this.btnExit.Text = "Exit";
+            this.btnExit.Text = "Thoát";
             this.btnExit.UseVisualStyleBackColor = true;
             // 
             // btnSignUp
             // 
             this.btnSignUp.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSignUp.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSignUp.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSignUp.Location = new System.Drawing.Point(461, 334);
             this.btnSignUp.Margin = new System.Windows.Forms.Padding(4);
             this.btnSignUp.Name = "btnSignUp";
             this.btnSignUp.Size = new System.Drawing.Size(112, 41);
             this.btnSignUp.TabIndex = 15;
-            this.btnSignUp.Text = "Sign Up";
+            this.btnSignUp.Text = "Đăng ký";
             this.btnSignUp.UseVisualStyleBackColor = true;
             this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
             // 
@@ -136,25 +136,25 @@
             this.lblPassword.AutoSize = true;
             this.lblPassword.BackColor = System.Drawing.SystemColors.Window;
             this.lblPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.lblPassword.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassword.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword.ForeColor = System.Drawing.SystemColors.GrayText;
             this.lblPassword.Location = new System.Drawing.Point(577, 207);
             this.lblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(95, 23);
+            this.lblPassword.Size = new System.Drawing.Size(85, 20);
             this.lblPassword.TabIndex = 20;
-            this.lblPassword.Text = "Password";
+            this.lblPassword.Text = "Mật khẩu";
             // 
             // btnLogin
             // 
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogin.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(277, 334);
+            this.btnLogin.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Location = new System.Drawing.Point(267, 334);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(112, 41);
+            this.btnLogin.Size = new System.Drawing.Size(122, 41);
             this.btnLogin.TabIndex = 25;
-            this.btnLogin.Text = "Login";
+            this.btnLogin.Text = "Đăng nhập";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
@@ -175,7 +175,7 @@
             this.Controls.Add(this.btnSignUp);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormLogin";
-            this.Text = "FormLogin";
+            this.Text = "Đăng nhập";
             this.ResumeLayout(false);
             this.PerformLayout();
 
