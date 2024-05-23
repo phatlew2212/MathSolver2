@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MathSolver2
@@ -16,133 +9,176 @@ namespace MathSolver2
         {
             InitializeComponent();
         }
+
         float data1, data2;
         string tinhtoan;
+        bool calculationComplete = false;
+
         private void button1_Click(object sender, EventArgs e)
         {
-            pheptinh.Text = pheptinh.Text + "9";
-
+            if (calculationComplete)
+            {
+                pheptinh.Clear();
+                calculationComplete = false;
+            }
+            pheptinh.Text += "9";
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            pheptinh.Text = pheptinh.Text + "2";
-
+            if (calculationComplete)
+            {
+                pheptinh.Clear();
+                calculationComplete = false;
+            }
+            pheptinh.Text += "2";
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void button13_Click(object sender, EventArgs e)
         {
-            pheptinh.Text = pheptinh.Text + "0";
+            if (calculationComplete)
+            {
+                pheptinh.Clear();
+                calculationComplete = false;
+            }
+            pheptinh.Text += "0";
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
-            pheptinh.Text = pheptinh.Text + "1";
-
+            if (calculationComplete)
+            {
+                pheptinh.Clear();
+                calculationComplete = false;
+            }
+            pheptinh.Text += "1";
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            pheptinh.Text = pheptinh.Text + "3";
-
+            if (calculationComplete)
+            {
+                pheptinh.Clear();
+                calculationComplete = false;
+            }
+            pheptinh.Text += "3";
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
-            pheptinh.Text = pheptinh.Text + "4";
-
+            if (calculationComplete)
+            {
+                pheptinh.Clear();
+                calculationComplete = false;
+            }
+            pheptinh.Text += "4";
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            pheptinh.Text = pheptinh.Text + "5";
-
+            if (calculationComplete)
+            {
+                pheptinh.Clear();
+                calculationComplete = false;
+            }
+            pheptinh.Text += "5";
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            pheptinh.Text = pheptinh.Text + "6";
-
+            if (calculationComplete)
+            {
+                pheptinh.Clear();
+                calculationComplete = false;
+            }
+            pheptinh.Text += "6";
         }
 
         private void button14_Click(object sender, EventArgs e)
         {
-            pheptinh.Text = pheptinh.Text + "7";
-
+            if (calculationComplete)
+            {
+                pheptinh.Clear();
+                calculationComplete = false;
+            }
+            pheptinh.Text += "7";
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            pheptinh.Text = pheptinh.Text + "8";
-
+            if (calculationComplete)
+            {
+                pheptinh.Clear();
+                calculationComplete = false;
+            }
+            pheptinh.Text += "8";
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            pheptinh.Text = pheptinh.Text + ".";
-
+            if (calculationComplete)
+            {
+                pheptinh.Clear();
+                calculationComplete = false;
+            }
+            pheptinh.Text += ".";
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if(tinhtoan == "cong")
+            float parsedValue;
+            if (!float.TryParse(pheptinh.Text, out parsedValue)) return;
+
+            switch (tinhtoan)
             {
-                data2 = data1 + float.Parse(pheptinh.Text);
-                pheptinh.Text = data1.ToString() + "+" + float.Parse(pheptinh.Text) + "=";
-                ketqua.Text = data2.ToString();
-            }
-            if (tinhtoan == "tru")
-            {
-                data2 = data1 - float.Parse(pheptinh.Text);
-                pheptinh.Text = data1.ToString() + "-" + float.Parse(pheptinh.Text) + "=";
-                ketqua.Text = data2.ToString();
-            }
-            if (tinhtoan == "nhan")
-            {
-                data2 = data1 * float.Parse(pheptinh.Text);
-                pheptinh.Text = data1.ToString() + "*" + float.Parse(pheptinh.Text) + "=";
-                ketqua.Text = data2.ToString();
-            }
-            if (tinhtoan == "chia")
-            {
-                if(float.Parse(pheptinh.Text) == 0)
-                {
-                    ketqua.Text = "MathERROR";
-                }
-                else
-                {
-                    data2 = data1 / float.Parse(pheptinh.Text);
-                    pheptinh.Text = data1.ToString() + "÷" + float.Parse(pheptinh.Text) + "=";
+                case "cong":
+                    data2 = data1 + parsedValue;
+                    pheptinh.Text = $"{data1}+{parsedValue}=";
                     ketqua.Text = data2.ToString();
-                }
+                    break;
+                case "tru":
+                    data2 = data1 - parsedValue;
+                    pheptinh.Text = $"{data1}-{parsedValue}=";
+                    ketqua.Text = data2.ToString();
+                    break;
+                case "nhan":
+                    data2 = data1 * parsedValue;
+                    pheptinh.Text = $"{data1}*{parsedValue}=";
+                    ketqua.Text = data2.ToString();
+                    break;
+                case "chia":
+                    if (parsedValue == 0)
+                    {
+                        ketqua.Text = "MathERROR";
+                    }
+                    else
+                    {
+                        data2 = data1 / parsedValue;
+                        pheptinh.Text = $"{data1}÷{parsedValue}=";
+                        ketqua.Text = data2.ToString();
+                    }
+                    break;
             }
+
+            calculationComplete = true;
         }
 
         private void button19_Click(object sender, EventArgs e)
         {
-            tinhtoan = "cong";
-            data1 = float.Parse(pheptinh.Text);
-            pheptinh.Text = data1.ToString() + "+";
-            pheptinh.Clear();
-
-        }
-
-        private void button15_Click(object sender, EventArgs e)
-        {
-            pheptinh.Text = pheptinh.Text + "(";
-
-        }
-
-        private void button17_Click(object sender, EventArgs e)
-        {
-            pheptinh.Text = pheptinh.Text + "0";
-
-
+            if (calculationComplete)
+            {
+                pheptinh.Clear();
+                calculationComplete = false;
+            }
+            if (float.TryParse(pheptinh.Text, out data1))
+            {
+                tinhtoan = "cong";
+                pheptinh.Clear();
+            }
         }
 
         private void button16_Click(object sender, EventArgs e)
@@ -153,35 +189,73 @@ namespace MathSolver2
 
         private void button20_Click(object sender, EventArgs e)
         {
-            tinhtoan = "tru";
-            data1 = float.Parse(pheptinh.Text);
-            pheptinh.Clear();
+            if (calculationComplete)
+            {
+                pheptinh.Clear();
+                calculationComplete = false;
+            }
+            if (float.TryParse(pheptinh.Text, out data1))
+            {
+                tinhtoan = "tru";
+                pheptinh.Clear();
+            }
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
-            tinhtoan = "nhan";
-            data1 = float.Parse(pheptinh.Text);
-            pheptinh.Clear();
-
+            if (calculationComplete)
+            {
+                pheptinh.Clear();
+                calculationComplete = false;
+            }
+            if (float.TryParse(pheptinh.Text, out data1))
+            {
+                tinhtoan = "nhan";
+                pheptinh.Clear();
+            }
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            tinhtoan = "chia";
-            data1 = float.Parse(pheptinh.Text);
-            pheptinh.Clear();
-
+            if (calculationComplete)
+            {
+                pheptinh.Clear();
+                calculationComplete = false;
+            }
+            if (float.TryParse(pheptinh.Text, out data1))
+            {
+                tinhtoan = "chia";
+                pheptinh.Clear();
+            }
         }
 
         private void pheptinh_TextChanged(object sender, EventArgs e)
         {
+        }
 
+        private void button22_Click(object sender, EventArgs e)
+        {
+            FormLogin formLogin = new FormLogin();
+            formLogin.Show();
+            this.Hide();
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            FormSolvingEquation equation = new FormSolvingEquation();
+            equation.Show();
+            this.Hide();
+        }
+
+        private void button18_Click_1(object sender, EventArgs e)
+        {
+            pheptinh.Text = ketqua.Text;
+            calculationComplete = false;
         }
 
         private void FormCalculator_Load(object sender, EventArgs e)
         {
-
         }
     }
 }
+
