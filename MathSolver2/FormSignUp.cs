@@ -3,6 +3,7 @@ using System.Data.SQLite;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
+
 namespace MathSolver2
 {
     public partial class FormSignUp : Form
@@ -15,6 +16,7 @@ namespace MathSolver2
             txtPassword.TextChanged += new EventHandler(HideErrors);
             txtConfirmPassword.TextChanged += new EventHandler(HideErrors);
             txtGmail.TextChanged += new EventHandler(HideErrors);
+
             this.txtUsername.KeyPress += new KeyPressEventHandler(FormSignUp_KeyPress);
             this.txtPassword.KeyPress += new KeyPressEventHandler(FormSignUp_KeyPress);
             this.txtConfirmPassword.KeyPress += new KeyPressEventHandler(FormSignUp_KeyPress);
@@ -45,36 +47,44 @@ namespace MathSolver2
             string password = txtPassword.Text;
             string confirmPassword = txtConfirmPassword.Text;
             string email = txtGmail.Text;
-
-            if (!IsValidEmail(email))
+            if (!notNullPassAndUser(username, password))
             {
-                this.errorEmail.Show() ;
-                return;
-            }
-
-            if (password != confirmPassword)
-            {
-                this.errorConfirmPassword.Show() ;
+                this.notNullUsernameAndPass.Show();
                 return;
             }
 
             if (IsUsernameTaken(username))
             {
-                this.existUsername.Show() ;
+                this.existUsername.Show();
                 return;
             }
-
+            if (password != confirmPassword)
+            {
+                this.errorConfirmPassword.Show();
+                return;
+            }
+            if (!IsValidEmail(email))
+            {
+                this.errorEmail.Show() ;
+                return;
+            }
             RegisterUser(fullName, username, password, email);
         }
 
         private bool IsValidEmail(string email)
         {
+            if (string.IsNullOrEmpty(email))
+            {
+                return true;
+            }
+
             string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
             return Regex.IsMatch(email, pattern);
         }
 
         private bool IsUsernameTaken(string username)
         {
+
             using (SQLiteConnection conn = getConnection())
             {
                 string query = "SELECT COUNT(*) FROM users WHERE username = @username";
@@ -85,6 +95,14 @@ namespace MathSolver2
                     return count > 0;
                 }
             }
+        }
+        private bool notNullPassAndUser(string username, string password)
+        {
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                return false;
+            }
+            return true;
         }
 
         private void RegisterUser(string fullName, string username, string password, string email)
@@ -125,6 +143,7 @@ namespace MathSolver2
             this.errorEmail.Hide();
             this.errorConfirmPassword.Hide();
             this.existUsername.Hide();
+            this.notNullUsernameAndPass.Hide();
         }
         private void FormSignUp_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -134,7 +153,10 @@ namespace MathSolver2
                 btnSignUp_Click(sender, e);
             }
         }
-
+        private void FormSignUp_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
 
