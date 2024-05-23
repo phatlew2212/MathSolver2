@@ -253,6 +253,28 @@ namespace MathSolver2
             calculationComplete = false;
         }
 
+        private void button15_Click(object sender, EventArgs e)
+        {
+            if (float.TryParse(pheptinh.Text, out data1))
+    {
+        data2 = (float)Math.Sin(data1 * Math.PI / 180); // Assuming input is in degrees
+        pheptinh.Text = $"sin({data1}) =";
+        ketqua.Text = data2.ToString();
+        calculationComplete = true;
+    }
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            if (float.TryParse(pheptinh.Text, out data1))
+            {
+                data2 = (float)Math.Cos(data1 * Math.PI / 180); // Assuming input is in degrees
+                pheptinh.Text = $"cos({data1}) =";
+                ketqua.Text = data2.ToString();
+                calculationComplete = true;
+            }
+        }
+
         private void FormCalculator_Load(object sender, EventArgs e)
         {
         }

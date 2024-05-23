@@ -52,6 +52,9 @@
             this.button21 = new System.Windows.Forms.Button();
             this.button22 = new System.Windows.Forms.Button();
             this.ketqua = new System.Windows.Forms.TextBox();
+            this.button15 = new System.Windows.Forms.Button();
+            this.button17 = new System.Windows.Forms.Button();
+            this.button23 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -262,7 +265,7 @@
             // 
             this.button18.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.button18.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button18.Location = new System.Drawing.Point(528, 311);
+            this.button18.Location = new System.Drawing.Point(647, 239);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(111, 39);
             this.button18.TabIndex = 16;
@@ -274,7 +277,7 @@
             // 
             this.button19.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.button19.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button19.Location = new System.Drawing.Point(528, 274);
+            this.button19.Location = new System.Drawing.Point(530, 274);
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(111, 39);
             this.button19.TabIndex = 21;
@@ -286,7 +289,7 @@
             // 
             this.button20.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.button20.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button20.Location = new System.Drawing.Point(528, 239);
+            this.button20.Location = new System.Drawing.Point(530, 239);
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(111, 39);
             this.button20.TabIndex = 20;
@@ -328,6 +331,41 @@
             this.ketqua.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ketqua.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
+            // button15
+            // 
+            this.button15.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button15.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button15.Location = new System.Drawing.Point(530, 348);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(109, 39);
+            this.button15.TabIndex = 25;
+            this.button15.Text = "sin";
+            this.button15.UseVisualStyleBackColor = false;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
+            // 
+            // button17
+            // 
+            this.button17.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button17.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button17.Location = new System.Drawing.Point(530, 312);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(109, 39);
+            this.button17.TabIndex = 26;
+            this.button17.Text = "cos";
+            this.button17.UseVisualStyleBackColor = false;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
+            // 
+            // button23
+            // 
+            this.button23.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button23.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button23.Location = new System.Drawing.Point(530, 385);
+            this.button23.Name = "button23";
+            this.button23.Size = new System.Drawing.Size(109, 39);
+            this.button23.TabIndex = 27;
+            this.button23.Text = "log";
+            this.button23.UseVisualStyleBackColor = false;
+            // 
             // FormCalculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -335,6 +373,9 @@
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(845, 532);
+            this.Controls.Add(this.button23);
+            this.Controls.Add(this.button17);
+            this.Controls.Add(this.button15);
             this.Controls.Add(this.ketqua);
             this.Controls.Add(this.button22);
             this.Controls.Add(this.button21);
@@ -391,5 +432,8 @@
         private System.Windows.Forms.Button button21;
         private System.Windows.Forms.Button button22;
         private System.Windows.Forms.TextBox ketqua;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Button button23;
     }
 }
