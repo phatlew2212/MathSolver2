@@ -16,7 +16,7 @@ namespace MathSolver2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new hello());
+            Application.Run(new FormCalc());
         }
     }
 }

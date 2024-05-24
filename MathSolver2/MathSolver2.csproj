@@ -121,6 +121,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="1Equa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="1Equa.Designer.cs">
+      <DependentUpon>1Equa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2Equa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2Equa.Designer.cs">
+      <DependentUpon>2Equa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCalc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCalc.Designer.cs">
+      <DependentUpon>FormCalc.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCalculator.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +182,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="1Equa.resx">
+      <DependentUpon>1Equa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2Equa.resx">
+      <DependentUpon>2Equa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCalc.resx">
+      <DependentUpon>FormCalc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCalculator.resx">
       <DependentUpon>FormCalculator.cs</DependentUpon>
       <SubType>Designer</SubType>
