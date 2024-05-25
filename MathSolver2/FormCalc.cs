@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.AccessControl;
 using System.Windows.Forms;
 namespace MathSolver2
 {
@@ -14,6 +15,7 @@ namespace MathSolver2
         {
             InitializeComponent();
         }
+       
 
 
         private void btnNUM(object sender, EventArgs e)
@@ -36,12 +38,16 @@ namespace MathSolver2
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            FormEq2 formEq2 = new FormEq2();
+            formEq2.Show();
+            this.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            FormEq1 formEq1 = new FormEq1();
+            formEq1.Show();
+            this.Hide();
         }
 
         private void btnOper(object sender, EventArgs e)
@@ -188,9 +194,17 @@ namespace MathSolver2
             txtBot.Clear();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
-
+            FormLogin formLogin = new FormLogin();
+            formLogin.Show();
+            this.Hide();
         }
+
+        private void btnCalc_Click(object sender, EventArgs e)
+        {
+            
+        }
+
     }
 }
