@@ -137,18 +137,18 @@ namespace MathSolver2
             {
                 case "cong":
                     data2 = data1 + parsedValue;
-                    pheptinh.Text = $"{data1}+{parsedValue}=";
-                    ketqua.Text = data2.ToString();
+                    pheptinh.Text = $"{data1}+{parsedValue}";
+                    ketqua.Text = "=" + data2.ToString();
                     break;
                 case "tru":
                     data2 = data1 - parsedValue;
-                    pheptinh.Text = $"{data1}-{parsedValue}=";
-                    ketqua.Text = data2.ToString();
+                    pheptinh.Text = $"{data1}-{parsedValue}";
+                    ketqua.Text = "=" + data2.ToString();
                     break;
                 case "nhan":
                     data2 = data1 * parsedValue;
-                    pheptinh.Text = $"{data1}*{parsedValue}=";
-                    ketqua.Text = data2.ToString();
+                    pheptinh.Text = $"{data1}*{parsedValue}";
+                    ketqua.Text = "=" + data2.ToString();
                     break;
                 case "chia":
                     if (parsedValue == 0)
@@ -158,8 +158,8 @@ namespace MathSolver2
                     else
                     {
                         data2 = data1 / parsedValue;
-                        pheptinh.Text = $"{data1}÷{parsedValue}=";
-                        ketqua.Text = data2.ToString();
+                        pheptinh.Text = $"{data1}÷{parsedValue}";
+                        ketqua.Text = "=" + data2.ToString();
                     }
                     break;
             }
@@ -257,7 +257,7 @@ namespace MathSolver2
         {
             if (float.TryParse(pheptinh.Text, out data1))
     {
-        data2 = (float)Math.Sin(data1 * Math.PI / 180); // Assuming input is in degrees
+        data2 = (float)Math.Sin(data1 * Math.PI / 180); // degree
         pheptinh.Text = $"sin({data1}) =";
         ketqua.Text = data2.ToString();
         calculationComplete = true;
@@ -268,9 +268,26 @@ namespace MathSolver2
         {
             if (float.TryParse(pheptinh.Text, out data1))
             {
-                data2 = (float)Math.Cos(data1 * Math.PI / 180); // Assuming input is in degrees
+                data2 = (float)Math.Cos(data1 * Math.PI / 180); // degree
                 pheptinh.Text = $"cos({data1}) =";
                 ketqua.Text = data2.ToString();
+                calculationComplete = true;
+            }
+        }
+
+        private void button23_Click(object sender, EventArgs e)
+        {
+            if (float.TryParse(pheptinh.Text, out data1) && data1 > 0)
+            {
+                data2 = (float)Math.Log10(data1);
+                pheptinh.Text = $"log({data1}) =";
+                ketqua.Text = data2.ToString();
+                calculationComplete = true;
+            }
+            else
+            {
+                pheptinh.Text = "MathERROR";
+                ketqua.Text = "";
                 calculationComplete = true;
             }
         }
