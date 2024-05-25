@@ -41,27 +41,34 @@ namespace MathSolver2
         {
             string username = txtUsername.Text;
             string password = txtPassword.Text;
+            string salt = "$2a$12$X5EJWiB6XrULuZdhvf4vZO";
+            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password,salt);
+            string query = "SELECT Fullname FROM users WHERE Username = @username AND Password = @hashedPassword";
             using (SQLiteConnection connection = getConnection())
             {
-             
-                string query = "SELECT COUNT(*) FROM users WHERE Username = @username AND Password = @password";
                 using (SQLiteCommand cmd = new SQLiteCommand(query, connection))
                 {
-                    cmd.Parameters.AddWithValue("username", username);
-                    cmd.Parameters.AddWithValue("password", password);
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@hashedPassword", hashedPassword);
 
-                    int userCount = Convert.ToInt32(cmd.ExecuteScalar());
-
-                    if (userCount == 1)
+                    using (SQLiteDataReader reader = cmd.ExecuteReader())
                     {
-                        MessageBox.Show("Đăng nhập thành công!");
-                        FormCalc formCalc = new FormCalc();
-                        formCalc.Show();
-                        this.Hide();
-                    }
-                    else
-                    {
-                        this.label2.Show();
+                        if (reader.Read())
+                        {
+                            string fullname = reader["Fullname"].ToString();
+                            if (string.IsNullOrEmpty(fullname))
+                            {
+                                fullname = "Unknown";
+                            }
+                            MessageBox.Show("Đăng nhập thành công!");
+                            FormCalc formCalc = new FormCalc(fullname);
+                            formCalc.Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            this.label2.Show();
+                        }
                     }
                 }
             }
@@ -107,11 +114,6 @@ namespace MathSolver2
         private void FormSignUp_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 

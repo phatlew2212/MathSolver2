@@ -10,9 +10,10 @@ namespace MathSolver2
         string fstNum, secNum;
         bool Complt = false;
         double ans = 0;
-        public FormCalc()
+        public FormCalc(string fullname)
         {
             InitializeComponent();
+            this.label1.Text = fullname;
         }
 
 

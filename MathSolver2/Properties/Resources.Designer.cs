@@ -63,6 +63,16 @@ namespace MathSolver2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _4bef5327ed324d6c1423 {
+            get {
+                object obj = ResourceManager.GetObject("4bef5327ed324d6c1423", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap HELLO {
             get {
                 object obj = ResourceManager.GetObject("HELLO", resourceCulture);

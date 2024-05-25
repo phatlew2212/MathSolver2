@@ -44,9 +44,9 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.BackColor = System.Drawing.SystemColors.Menu;
+            this.txtUsername.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtUsername.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.Location = new System.Drawing.Point(54, 144);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsername.Multiline = true;
@@ -56,9 +56,9 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.BackColor = System.Drawing.SystemColors.Menu;
+            this.txtPassword.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtPassword.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(54, 229);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.Multiline = true;
@@ -146,6 +146,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
+            this.linkLabel1.BackColor = System.Drawing.Color.YellowGreen;
             this.linkLabel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linkLabel1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.LinkColor = System.Drawing.Color.SteelBlue;
@@ -175,7 +176,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.panel1.BackColor = System.Drawing.Color.YellowGreen;
             this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Controls.Add(this.label6);
@@ -190,7 +191,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(396, 460);
             this.panel1.TabIndex = 28;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // FormLogin
             // 
@@ -201,6 +201,7 @@
             this.ClientSize = new System.Drawing.Size(838, 525);
             this.Controls.Add(this.panel1);
             this.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);

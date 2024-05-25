@@ -47,6 +47,8 @@ namespace MathSolver2
             string password = txtPassword.Text;
             string confirmPassword = txtConfirmPassword.Text;
             string email = txtGmail.Text;
+            string salt = "$2a$12$X5EJWiB6XrULuZdhvf4vZO";
+            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password,salt);
             if (!notNullPassAndUser(username, password))
             {
                 this.notNullUsernameAndPass.Show();
@@ -68,7 +70,7 @@ namespace MathSolver2
                 this.errorEmail.Show() ;
                 return;
             }
-            RegisterUser(fullName, username, password, email);
+            RegisterUser(fullName, username, hashedPassword, email);
         }
 
         private bool IsValidEmail(string email)
