@@ -55,8 +55,8 @@ namespace MathSolver2
                     if (userCount == 1)
                     {
                         MessageBox.Show("Đăng nhập thành công!");
-                        FormCalculator formCalculator = new FormCalculator();
-                        formCalculator.Show();
+                        FormCalc formCalc = new FormCalc();
+                        formCalc.Show();
                         this.Hide();
                     }
                     else
@@ -109,6 +109,10 @@ namespace MathSolver2
             Application.Exit();
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 
 }
