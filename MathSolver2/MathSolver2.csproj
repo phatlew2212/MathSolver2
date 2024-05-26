@@ -16,6 +16,25 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>C:\Users\DELL\Desktop\Math\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>https://github.com/phatlew2212/MathSolver2/</InstallUrl>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -42,6 +61,18 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>8C4410E8D285355312B8EF00A865657CF98DCBD6</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>MathSolver2_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
       <HintPath>..\packages\BCrypt.Net-Next.4.0.3\lib\net472\BCrypt.Net-Next.dll</HintPath>
@@ -67,7 +98,9 @@
     <Reference Include="SQLitePCLRaw.core, Version=2.1.8.2226, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
       <HintPath>..\packages\SQLitePCLRaw.core.2.1.8\lib\netstandard2.0\SQLitePCLRaw.core.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
@@ -124,35 +157,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="1Equa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="1Equa.Designer.cs">
-      <DependentUpon>1Equa.cs</DependentUpon>
-    </Compile>
-    <Compile Include="2Equa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="2Equa.Designer.cs">
-      <DependentUpon>2Equa.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormCalc.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormCalc.Designer.cs">
       <DependentUpon>FormCalc.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormCalculator.cs">
+    <Compile Include="FormEq1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCalculator.Designer.cs">
-      <DependentUpon>FormCalculator.cs</DependentUpon>
+    <Compile Include="FormEq1.Designer.cs">
+      <DependentUpon>FormEq1.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMain.cs">
+    <Compile Include="FormEq2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMain.Designer.cs">
-      <DependentUpon>FormMain.cs</DependentUpon>
+    <Compile Include="FormEq2.Designer.cs">
+      <DependentUpon>FormEq2.cs</DependentUpon>
     </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
@@ -165,12 +186,6 @@
     </Compile>
     <Compile Include="FormSignUp.Designer.cs">
       <DependentUpon>FormSignUp.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSolvingEquation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSolvingEquation.Designer.cs">
-      <DependentUpon>FormSolvingEquation.cs</DependentUpon>
     </Compile>
     <Compile Include="hello.cs">
       <SubType>Form</SubType>
@@ -185,24 +200,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="1Equa.resx">
-      <DependentUpon>1Equa.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="2Equa.resx">
-      <DependentUpon>2Equa.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormCalc.resx">
       <DependentUpon>FormCalc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormCalculator.resx">
-      <DependentUpon>FormCalculator.cs</DependentUpon>
-      <SubType>Designer</SubType>
+    <EmbeddedResource Include="FormEq1.resx">
+      <DependentUpon>FormEq1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEq2.resx">
+      <DependentUpon>FormEq2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormMain.resx">
-      <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSignUp.resx">
       <DependentUpon>FormSignUp.cs</DependentUpon>
@@ -220,6 +228,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="MathSolver2_TemporaryKey.pfx" />
     <None Include="mathsolverDataSet.xsc">
       <DependentUpon>mathsolverDataSet.xsd</DependentUpon>
     </None>
@@ -255,6 +264,18 @@
     <None Include="Resources\4bef5327ed324d6c1423.jpg" />
     <None Include="Resources\HELLO.jpg" />
     <None Include="Resources\HELLO1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
